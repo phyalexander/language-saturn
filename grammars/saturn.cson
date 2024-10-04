@@ -1,0 +1,83 @@
+scopeName: 'source.saturn'
+name: 'Saturn'
+fileTypes: ['saturn', 'mtmk']
+
+patterns: [
+    {
+        comment: 'colors for predefinded constants'
+        match: '(?:Any)'
+        name: 'support.constant.saturn'
+    },
+    {
+        comment: 'make commented fragments gray'
+        name: 'comment.line.saturn'
+        match: '--.*$'
+    },
+    {
+        comment: 'colors for type declaration'
+        match: '^(type) (\\w+) (=) (\\S+(?: \\S+)*) (:) (\\w+(?: \\w+)*)'
+        captures:
+            1: name: 'keyword.control.saturn'
+            2: name: 'entity.name.type.saturn'
+            3: name: 'keyword.other.saturn'
+            4: name: 'entity.name.function.saturn'
+            5: name: 'keyword.other.saturn'
+            6: name: 'entity.name.type.saturn'
+        name: 'meta.type.saturn'
+    },
+    {
+        comment: 'colors for import lines'
+        match: '^(import) \\S+'
+        captures:
+            1: name: 'keyword.control.saturn'
+        name: 'meta.import.saturn'
+    },
+    {
+        comment: 'colors for task declaration'
+        match: '^(task:) \\S+'
+        captures:
+            1: name: 'keyword.control.saturn'
+        name: 'meta.other.saturn'
+    },
+    {
+        comment: 'colors for rule expressions'
+        match: '^.*( -> ).*?(--.*)?'
+        captures:
+            1: name: 'keyword.other.saturn'
+            2: name: 'comment.line.saturn'
+        name: 'meta.function.saturn'
+    },
+    {
+        comment: 'colors for rule variable declarations'
+        # x : type, y : type
+        match: '(?:^|, )([A-Z0-9]+)\\s?(:) (\\w+(?: \\w+)*)'
+        captures:
+            1: name: 'entity.name.function.saturn'
+            2: name: 'keyword.other.saturn'
+            3: name: 'entity.name.type.saturn'
+        name: 'meta.function.saturn'
+    },
+
+
+    # FIXME: conflicts with other rules.
+    # {
+    #     comment: 'colors for predefinded constants'
+    #     match: '(?:Any)'
+    #     name: 'support.constant.saturn'
+    # },
+
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
